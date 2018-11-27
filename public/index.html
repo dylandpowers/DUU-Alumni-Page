@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="findAlums">
+  <head>
+    <meta charset="utf-8">
+    <title>DUU Alumni Database</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <script src="core.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body ng-controller="mainController">
+    <table class="table-striped">
+      <thead>
+        <tr>
+          <th>Last Name</th>
+          <th>First Name</th>
+          <th>Graduation Year</th>
+          <th>Current Position</th>
+          <th>Current Company</th>
+          <th>Committee(s)</th>
+          <th>Board Positions</th>
+          <th>Duke Email</th>
+          <th>Non-Duke Email</th>
+          <th>LinkedIn Profile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="profile in data">
+          <td ng-repeat="attr in profile track by $index">{{ attr }}</th>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
