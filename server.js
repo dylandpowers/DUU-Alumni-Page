@@ -44,11 +44,17 @@ function authorize(credentials, callback, res) {
       client_id, client_secret, redirect_uris[0]);
 
   // finish setting up credentials, call callback
-  fs.readFile('token.json', (err, token) => {
-    if (err) return console.log('Token invalid');
-    oAuth2Client.setCredentials(JSON.parse(token));
-    callback(oAuth2Client, res);
-  });
+  var token = {
+    access_token: process.env.access_token,
+    refresh_token: process.env.refresh_token,
+    scope: 'https://www.googleapis.com/auth/spreadsheets.readonly',
+    token_type: 'Bearer',
+    expiry_date: process.env.expiry_date
+  };
+
+  if (err) return console.log('Token invalid');
+  oAuth2Client.setCredentials(token);
+  callback(oAuth2Client, res);
 }
 
 /**
