@@ -52,7 +52,6 @@ function authorize(credentials, callback, res) {
     expiry_date: process.env.expiry_date
   };
 
-  if (err) return console.log('Token invalid');
   oAuth2Client.setCredentials(token);
   callback(oAuth2Client, res);
 }
