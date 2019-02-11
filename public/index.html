@@ -8,24 +8,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
   <body ng-controller="mainController">
+    <div class="container" style="margin: 10px 10px 10px 10px;">
+      <div class="pull-right control-group">
+        <input type="text" id="query" ng-model="query" placeholder="Search"/>
+        <span>Order by:</span>
+        <select ng-options="attr as attr.humanName for attr in attributes" ng-model="orderList"></select>
+      </div>
+    </div>
     <table class="table-striped table-hover" style="font-size: 10px;">
       <thead>
         <tr>
-          <th scope="col">Last Name</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Graduation Year</th>
-          <th scope="col">Current Position</th>
-          <th scope="col">Current Company</th>
-          <th scope="col">Committee(s)</th>
-          <th scope="col">Board Positions</th>
-          <th scope="col">Duke Email</th>
-          <th scope="col">Non-Duke Email</th>
-          <th scope="col">LinkedIn Profile</th>
+          <th scope="col" ng-repeat="header in humanAttributes">{{ header }}</th>
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="profile in data">
-          <td ng-repeat="attr in profile track by $index">{{ attr }}</td>
+        <tr ng-repeat="profile in data | filter: query | orderBy: orderList">
+          <td ng-repeat="attr in profile">{{ attr }}</td>
         </tr>
       </tbody>
     </table>
