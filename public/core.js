@@ -17,6 +17,8 @@ findAlums.controller('mainController', ($scope, $http) => {
   $http.get('/alums')
     .then((res) => {
       let rawData = res.data;
+      console.log('RAW DATA:', rawData);
+      console.log('RES:', res);
       // transform data into objects for sorting
       $scope.data = []; // will be array of person objects
       rawData.forEach((person) => {
