@@ -1,5 +1,8 @@
 # DUU Alumni Database
-This is a simple Angular web page to grab the DUU alumni spreadsheet from google sheets and display the data in a table. The web app uses [ExpressJS](https://expressjs.com/) as the back-end framework for `Node.js`, and uses AngularJS on the front end. The app is hosted with [Heroku](https://www.heroku.com/).
+This is a simple Angular web page to grab the DUU alumni spreadsheet from google sheets and display the data in a table. The web app uses [ExpressJS](https://expressjs.com/) as the back-end framework for `Node.js`, and uses AngularJS on the front end. The app is hosted with [Heroku](https://www.heroku.com/). 
+
+### Author 
+Dylan Powers (dylan.powers@duke.edu)
 
 ### How to access it
 Access the webpage by going to [duualumni.herokuapp.com](duualumni.herokuapp.com). The login for Heroku is the same as the login for the gmail; see the CTO for details.

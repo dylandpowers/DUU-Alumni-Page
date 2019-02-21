@@ -17,15 +17,13 @@ findAlums.controller('mainController', ($scope, $http) => {
   $http.get('/alums')
     .then((res) => {
       let rawData = res.data;
-      console.log('RAW DATA:', rawData);
-      console.log('RES:', res);
       // transform data into objects for sorting
       $scope.data = []; // will be array of person objects
       rawData.forEach((person) => {
         var personObject = {};
         person.forEach((attribute, index) => {
           let attrName = $scope.attributes[index].value;
-          personObject[attrName] = attribute;
+          personObject[attrName] = attribute === undefined ? '&nbsp;' : attribute;
         });
         $scope.data.push(personObject);
       });
